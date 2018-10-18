@@ -20,8 +20,8 @@ const onCreateList = (event) => {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.createList(data)
-    .then(ui.createListSuccess)
-    .catch(ui.createListFailure)
+    .then(() => { onGetLists(event) })
+    .catch(console.log)
 }
 
 const onDeleteList = (event) => {
