@@ -48,6 +48,7 @@ const clearForms = function () {
   $('#signin-form').trigger('reset')
   $('#signup-form').trigger('reset')
   $('#change-password-form').trigger('reset')
+  $('#createListForm').trigger('reset')
 }
 
 module.exports = {
