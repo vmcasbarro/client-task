@@ -18,7 +18,10 @@
           </ul>
         {{/if}}
         <br>
-        <button class="btn btn-outline-secondary change-list">change this list!</button>
+        <form class="update-list-form" action="index.html" method="patch">
+          <input required type="text" name="list[list_name]" placeholder="list name"/>
+          <input type="submit" name="" value="change this list!" class="btn btn-outline-secondary margin-top-5">
+        </form>
         <button class="btn btn-outline-secondary delete-list">delete this list!</button>
 
       </section>

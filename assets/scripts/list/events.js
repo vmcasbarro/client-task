@@ -35,11 +35,22 @@ const onDeleteList = (event) => {
   }
 }
 
+const onUpdateList = (event) => {
+  event.preventDefault()
+  const listId = $(event.target).closest('section').data('id')
+  const formFieldData = getFormFields(event.target)
+  const data = [listId, formFieldData]
+  api.updateList(data)
+    .then(() => { onGetLists(event) })
+    .catch(console.log)
+}
+
 const addHandlers = () => {
   $('#getListsButton').on('click', onGetLists)
   $('#clearListsButton').on('click', onClearLists)
   $('#createListForm').on('submit', onCreateList)
   $('.content').on('click', '.delete-list', onDeleteList)
+  $('.content').on('submit', '.update-list-form', onUpdateList)
 }
 
 module.exports = {
