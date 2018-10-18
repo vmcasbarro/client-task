@@ -35,6 +35,7 @@ const changePasswordFailure = function () {
 
 const signOutSuccess = function () {
   console.log('signed out.')
+  $('.content').empty()
   clearForms()
 }
 
