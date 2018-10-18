@@ -23,7 +23,10 @@ const createList = function (data) {
 const deleteList = function (listId) {
   return $.ajax({
     url: config.apiUrl + `/lists/${listId}`,
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
