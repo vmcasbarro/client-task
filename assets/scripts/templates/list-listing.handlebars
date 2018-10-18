@@ -1,0 +1,21 @@
+{{#each lists as |list|}}
+  {{log list}}
+
+
+  <div>
+
+      <h1 data-id="{{list.id}}"> <small>{{list.list_name}}</small></h1>
+
+      <section data-id="{{list.id}}">
+        {{#if list.item}}
+          {{list.item}}
+        {{else}}
+          No items in the list.
+        {{/if}}
+        <br>
+        <button class="btn btn-default">delete this list!</button>
+
+      </section>
+  </div>
+
+{{/each}}
