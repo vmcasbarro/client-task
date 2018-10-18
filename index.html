@@ -18,8 +18,13 @@
 
       <!-- LISTS! -->
       <nav>
-        <button id="getListsButton" class="btn btn-default">Get Lists!</button>
-        <button id="clearListsButton" class="btn btn-default">Clear Lists!</button>
+        <button id="getListsButton" class="btn btn-outline-secondary">Get Lists!</button>
+        <button id="clearListsButton" class="btn btn-outline-secondary">Clear Lists!</button>
+        <form id="createListForm" class="" action="index.html" method="post">
+          <input required type="text" name="list[list_name]" placeholder="list name"/>
+          <input type="submit" name="" value="Create List!" class="btn btn-outline-secondary margin-top-5">
+        </form>
+
       </nav>
       <main>
         <div id="content" class="content"></div>

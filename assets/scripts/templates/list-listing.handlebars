@@ -10,10 +10,16 @@
         {{#if list.item}}
           {{list.item}}
         {{else}}
-          No items in the list.
+          <p>No items in the list.</p>
+          <ul>
+            <li>list-item-one</li>
+            <li>list-item-two</li>
+            <li>list-item-three</li>
+          </ul>
         {{/if}}
         <br>
-        <button class="btn btn-default">delete this list!</button>
+        <button class="btn btn-outline-secondary change-list">change this list!</button>
+        <button class="btn btn-outline-secondary delete-list">delete this list!</button>
 
       </section>
   </div>

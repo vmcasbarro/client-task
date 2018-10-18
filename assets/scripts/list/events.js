@@ -2,6 +2,7 @@
 
 const api = require('./api.js')
 const ui = require('./ui.js')
+const getFormFields = require('./../../../lib/get-form-fields.js')
 
 const onGetLists = (event) => {
   event.preventDefault()
@@ -13,6 +14,14 @@ const onGetLists = (event) => {
 const onClearLists = (event) => {
   event.preventDefault()
   ui.clearLists()
+}
+
+const onCreateList = (event) => {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.createList(data)
+    .then(ui.createListSuccess)
+    .catch(ui.createListFailure)
 }
 
 const onDeleteList = (event) => {
@@ -29,7 +38,8 @@ const onDeleteList = (event) => {
 const addHandlers = () => {
   $('#getListsButton').on('click', onGetLists)
   $('#clearListsButton').on('click', onClearLists)
-  $('.content').on('click', 'button', onDeleteList)
+  $('#createListForm').on('submit', onCreateList)
+  $('.content').on('click', '.delete-list', onDeleteList)
 }
 
 module.exports = {
