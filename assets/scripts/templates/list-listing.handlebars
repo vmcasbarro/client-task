@@ -4,11 +4,22 @@
 
   <div>
 
-      <h1 data-id="{{list.id}}"> <small>{{list.list_name}}</small></h1>
+      <h2 data-id="{{list.id}}">{{list.list_name}}</h2>
 
       <section data-id="{{list.id}}">
-        {{#if list.item}}
-          {{list.item}}
+
+        <form class="update-list-form" action="index.html" method="patch">
+          <input required type="text" name="list[list_name]" placeholder="list name"/>
+          <input type="submit" name="" value="change this list!" class="btn btn-outline-secondary margin-top-5">
+        </form>
+        <button class="btn btn-outline-secondary delete-list">delete this list!</button>
+
+        {{#if list.tasks}}
+          {{#each tasks as |task|}}
+            {{log task}}
+            <p data-id="{{task.id}}">{{task.task_name}}</p>
+          {{/each}}
+
         {{else}}
           <p>No items in the list.</p>
           <ul>
@@ -17,12 +28,11 @@
             <li>list-item-three</li>
           </ul>
         {{/if}}
-        <br>
-        <form class="update-list-form" action="index.html" method="patch">
-          <input required type="text" name="list[list_name]" placeholder="list name"/>
-          <input type="submit" name="" value="change this list!" class="btn btn-outline-secondary margin-top-5">
+
+        <form class="create-task-form" action="index.html" method="post">
+          <input required type="text" name="task[task_name]" placeholder="new task"/>
+          <input type="submit" name="" value="add a task!" class="btn btn-outline-secondary margin-top-5">
         </form>
-        <button class="btn btn-outline-secondary delete-list">delete this list!</button>
 
       </section>
   </div>

@@ -45,12 +45,24 @@ const onUpdateList = (event) => {
     .catch(console.log)
 }
 
+const onCreateTask = (event) => {
+  event.preventDefault()
+  const listId = $(event.target).closest('section').data('id')
+  const formFieldData = getFormFields(event.target)
+  const data = [listId, formFieldData]
+  console.log(data)
+  api.createTask(data)
+    .then(() => { onGetLists(event) })
+    .catch(console.log)
+}
+
 const addHandlers = () => {
   $('#getListsButton').on('click', onGetLists)
   $('#clearListsButton').on('click', onClearLists)
   $('#createListForm').on('submit', onCreateList)
   $('.content').on('click', '.delete-list', onDeleteList)
   $('.content').on('submit', '.update-list-form', onUpdateList)
+  $('.content').on('submit', '.create-task-form', onCreateTask)
 }
 
 module.exports = {

@@ -46,9 +46,23 @@ const deleteList = function (listId) {
   })
 }
 
+const createTask = function (dataArray) {
+  const listId = dataArray[0]
+  const data = dataArray[1]
+  return $.ajax({
+    url: config.apiUrl + `/lists/${listId}/tasks`,
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   getLists,
   createList,
   updateList,
-  deleteList
+  deleteList,
+  createTask
 }
