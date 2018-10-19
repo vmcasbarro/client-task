@@ -15,14 +15,29 @@
 
       <div class="pos-f-t">
         <div class="collapse" id="navbarToggleExternalContent">
-          <div class="bg-dark p-4">
-            <h4 class="text-white">Collapsed content</h4>
-            <span class="text-muted">Toggleable via the navbar brand.</span>
+          <div class="bg-dark p-4 d-flex flex-row-reverse">
+            <!-- change password form -->
+              <form id="change-password-form" class="hidden">
+                <input required type="password" name="passwords[old]" placeholder="old password"/>
+                <input required type="password" name="passwords[new]"  placeholder="new password" />
+                <input type="submit" name="" value="change password" class="btn btn-outline-secondary">
+              </form>
           </div>
         </div>
         <nav class="navbar navbar-dark bg-dark">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- three buttons, only ever showing one at a time -->
+          <button
+            id="signup-button-top" class="btn btn-outline-secondary signup-button"> sign up
+          </button>
+          <button
+            id="signin-button-top" class="btn btn-outline-secondary signin-button hidden"> sign in
+          </button>
+          <button
+            id="signout-button-top" class="btn btn-outline-secondary signout-button hidden"> sign out
           </button>
         </nav>
       </div>
@@ -48,44 +63,43 @@
       <!-- AUTH! -->
       <div class="auth">
 
+
+        <!-- sign in form -->
+        <form id="signin-form" action="index.html" method="post">
+          <input required type="text" name="credentials[email]" placeholder="email"/>
+          <input required type="password" name="credentials[password]"  placeholder="password" />
+          <input type="submit" name="" value="sign in" class="btn btn-outline-secondary margin-top-5">
+        </form>
+
         <!-- sign up form -->
-        <div class="hidden">
-          <form id="signup-form" action="index.html" method="post">
-            <legend>sign up</legend>
+        <div>
+          <form id="signup-form" class="signup-form hidden" action="index.html" method="post">
             <input required type="text" name="credentials[email]" placeholder="email"/>
             <input required type="password" name="credentials[password]"  placeholder="password" />
             <input required type="password" name="credentials[password_confirmation]"  placeholder="confirm password"/>
-            <input type="submit" name="" value="submit" class="btn btn-outline-secondary margin-top-5">
+            <input type="submit" name="" value="sign up" class="btn btn-outline-secondary margin-top-5">
           </form>
+
+          <!-- only showing one of these at a time -->
+          <a class="signup-button" href="#">want to sign up?</a>
+          <a class="signin-button hidden" href="#">want to sign in?</a>
         </div>
 
         <br>
 
-        <!-- sign in form -->
-        <form id="signin-form" action="index.html" method="post">
-          <legend>sign in</legend>
-          <input required type="text" name="credentials[email]" placeholder="email"/>
-          <input required type="password" name="credentials[password]"  placeholder="password" />
-          <input type="submit" name="" value="submit" class="btn btn-outline-secondary margin-top-5">
-        </form>
-
-        <br>
-
         <!-- change password form -->
-        <div class="hidden">
-          <form id="change-password-form" class="">
+          <!-- <form id="change-password-form" class="hidden">
             <legend>change password</legend>
             <input required type="password" name="passwords[old]" placeholder="old password"/>
             <input required type="password" name="passwords[new]"  placeholder="new password" />
             <input type="submit" name="" value="change password" class="btn btn-outline-secondary">
           </form>
-        </div>
 
-        <br>
+        <br> -->
 
         <!-- sign out button -->
         <button
-          id="signout-button" class="btn btn-outline-secondary hidden"> sign out
+          id="signout-button" class="btn btn-outline-secondary signout-button hidden"> sign out
         </button>
 
 

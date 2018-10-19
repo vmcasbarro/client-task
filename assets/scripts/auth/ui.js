@@ -3,6 +3,7 @@
 const store = require('./../store.js')
 
 const signUpSuccess = function () {
+  showSignIn()
   console.log('signed up.')
   clearForms()
 }
@@ -16,7 +17,11 @@ const signInSuccess = function (response) {
   store.user = response.user
   console.log('signed in.', response)
   $('.list-nav').removeClass('hidden')
-  $('#signout-button').removeClass('hidden')
+  $('.signout-button').removeClass('hidden')
+  $('#signin-form').addClass('hidden')
+  $('#change-password-form').removeClass('hidden')
+  $('.signup-button').addClass('hidden')
+
   clearForms()
 }
 
@@ -39,6 +44,10 @@ const signOutSuccess = function () {
   console.log('signed out.')
   $('.content').empty()
   $('.list-nav').addClass('hidden')
+  $('#signin-form').removeClass('hidden')
+  $('#change-password-form').addClass('hidden')
+  $('.signout-button').addClass('hidden')
+  $('.signup-button').removeClass('hidden')
   clearForms()
 }
 
@@ -54,6 +63,20 @@ const clearForms = function () {
   $('#createListForm').trigger('reset')
 }
 
+const showSignUp = function () {
+  $('#signin-form').addClass('hidden')
+  $('.signup-button').addClass('hidden')
+  $('#signup-form').removeClass('hidden')
+  $('.signin-button').removeClass('hidden')
+}
+
+const showSignIn = function () {
+  $('#signup-form').addClass('hidden')
+  $('.signin-button').addClass('hidden')
+  $('#signin-form').removeClass('hidden')
+  $('.signup-button').removeClass('hidden')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -62,5 +85,7 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  showSignUp,
+  showSignIn
 }
