@@ -15,18 +15,19 @@
         <button class="btn btn-outline-secondary delete-list">delete this list!</button>
 
         {{#if list.tasks}}
-          {{#each tasks as |task|}}
-            {{log task}}
-            <p data-id="{{task.id}}">{{task.task_name}}</p>
-          {{/each}}
-
-        {{else}}
-          <p>No items in the list.</p>
           <ul>
-            <li>list-item-one</li>
-            <li>list-item-two</li>
-            <li>list-item-three</li>
+            {{#each tasks as |task|}}
+              {{log task}}
+              <div data-id="{{task.id}}" class="form-check">
+                <input class="form-check-input" type="checkbox" value="">
+                <label class="form-check-label" for="">
+                  {{task.task_name}}
+                </label>
+              </div>
+            {{/each}}
           </ul>
+        {{else}}
+          <p>No tasks yet!</p>
         {{/if}}
 
         <form class="create-task-form" action="index.html" method="post">
