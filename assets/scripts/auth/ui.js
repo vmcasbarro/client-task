@@ -15,6 +15,8 @@ const signUpFailure = function () {
 const signInSuccess = function (response) {
   store.user = response.user
   console.log('signed in.', response)
+  $('.list-nav').removeClass('hidden')
+  $('#signout-button').removeClass('hidden')
   clearForms()
 }
 
@@ -36,6 +38,7 @@ const changePasswordFailure = function () {
 const signOutSuccess = function () {
   console.log('signed out.')
   $('.content').empty()
+  $('.list-nav').addClass('hidden')
   clearForms()
 }
 

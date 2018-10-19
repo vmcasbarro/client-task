@@ -12,20 +12,35 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+
+      <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+          <div class="bg-dark p-4">
+            <h4 class="text-white">Collapsed content</h4>
+            <span class="text-muted">Toggleable via the navbar brand.</span>
+          </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </nav>
+      </div>
+
       <h1>TASK</h1>
       <h2>a minimalist take on the to-do list.</h2>
 
 
       <!-- LISTS! -->
-      <nav>
+      <nav class="list-nav hidden">
         <button id="getListsButton" class="btn btn-outline-secondary">Get Lists!</button>
         <button id="clearListsButton" class="btn btn-outline-secondary">Clear Lists!</button>
         <form id="createListForm" class="" action="index.html" method="post">
           <input required type="text" name="list[list_name]" placeholder="list name"/>
           <input type="submit" name="" value="Create List!" class="btn btn-outline-secondary margin-top-5">
         </form>
-
       </nav>
+
       <main>
         <div id="content" class="content"></div>
       </main>
@@ -34,13 +49,15 @@
       <div class="auth">
 
         <!-- sign up form -->
-        <form id="signup-form" action="index.html" method="post">
-          <legend>sign up</legend>
-          <input required type="text" name="credentials[email]" placeholder="email"/>
-          <input required type="password" name="credentials[password]"  placeholder="password" />
-          <input required type="password" name="credentials[password_confirmation]"  placeholder="confirm password"/>
-          <input type="submit" name="" value="submit" class="btn btn-outline-secondary margin-top-5">
-        </form>
+        <div class="hidden">
+          <form id="signup-form" action="index.html" method="post">
+            <legend>sign up</legend>
+            <input required type="text" name="credentials[email]" placeholder="email"/>
+            <input required type="password" name="credentials[password]"  placeholder="password" />
+            <input required type="password" name="credentials[password_confirmation]"  placeholder="confirm password"/>
+            <input type="submit" name="" value="submit" class="btn btn-outline-secondary margin-top-5">
+          </form>
+        </div>
 
         <br>
 
@@ -55,12 +72,14 @@
         <br>
 
         <!-- change password form -->
-        <form id="change-password-form" class="hidden">
-          <legend>change password</legend>
-          <input required type="password" name="passwords[old]" placeholder="old password"/>
-          <input required type="password" name="passwords[new]"  placeholder="new password" />
-          <input type="submit" name="" value="change password" class="btn btn-outline-secondary">
-        </form>
+        <div class="hidden">
+          <form id="change-password-form" class="">
+            <legend>change password</legend>
+            <input required type="password" name="passwords[old]" placeholder="old password"/>
+            <input required type="password" name="passwords[new]"  placeholder="new password" />
+            <input type="submit" name="" value="change password" class="btn btn-outline-secondary">
+          </form>
+        </div>
 
         <br>
 
