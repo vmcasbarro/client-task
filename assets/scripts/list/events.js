@@ -63,6 +63,7 @@ const addHandlers = () => {
   $('.content').on('click', '.delete-list', onDeleteList)
   $('.content').on('submit', '.update-list-form', onUpdateList)
   $('.content').on('submit', '.create-task-form', onCreateTask)
+  $('.content').on('click', '.list-rename', ui.showRenameForm)
 }
 
 module.exports = {

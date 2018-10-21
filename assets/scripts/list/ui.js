@@ -21,8 +21,17 @@ const clearForms = function () {
   $('#createListForm').trigger('reset')
 }
 
+const showRenameForm = function (event) {
+  const listId = $(event.target).closest('section').data('id')
+  console.log(listId)
+  // the field that is the child of the section with data-id === listId
+
+  $(".list-rename-input-field").removeClass('hidden')
+}
+
 module.exports = {
   getListsSuccess,
   clearLists,
-  failure
+  failure,
+  showRenameForm
 }

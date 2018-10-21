@@ -4,15 +4,18 @@
 
   <div>
 
-      <h2 data-id="{{list.id}}">{{list.list_name}}</h2>
 
       <section data-id="{{list.id}}">
 
-        <form class="update-list-form" action="index.html" method="patch">
-          <input required type="text" name="list[list_name]" placeholder="list name"/>
-          <input type="submit" name="" value="change this list!" class="btn btn-outline-secondary margin-top-5">
+        <h2 class="list-name inline" data-id="{{list.id}}">{{list.list_name}}</h2>
+
+        <form class="update-list-form inline" action="index.html" method="patch">
+          <input class="list-rename-input-field hidden" required type="text" name="list[list_name]" placeholder="new list name"/>
+          <input type="submit" name="" value="change this list!" class="list-rename btn btn-outline-secondary margin-top-5">
         </form>
-        <button class="btn btn-outline-secondary delete-list">delete this list!</button>
+        <button class="btn btn-outline-secondary delete-list">
+          <img src="/public/svg/trashcan.svg" alt="delete">
+        </button>
 
         {{#if list.tasks}}
           <ul>
