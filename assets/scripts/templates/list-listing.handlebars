@@ -6,27 +6,45 @@
 
         <h3 class="list-name inline" data-id="{{list.id}}">{{list.list_name}}</h3>
 
+        {{! edit and delete buttons for lists }}
+        {{! update this form to amtch the lists form }}
         <form class="update-list-form inline" action="index.html" method="patch">
           <input class="list-rename-input-field hidden" required type="text" name="list[list_name]" placeholder="new list name"/>
           <input type="submit" name="" value="edit" class="list-rename btn btn-sm btn-outline-secondary margin-top-5">
         </form>
         <button class="btn btn-sm btn-outline-secondary delete-list">
-          <img src="/public/svg/trashcan.svg" alt="delete">
+          <img src="/public/svg/trashcan.svg" alt="delete list">
         </button>
 
         {{#if list.tasks}}
-          <ul>
+          <div>
             {{#each tasks as |task|}}
-              <div data-id="{{task.id}}" class="form-check">
-                <input class="form-check-input" type="checkbox" value="">
-                <label class="form-check-label" for="">
+              <div data-id="{{task.id}}" class="individual-task">
+                {{#if task.completed}}
+                <p class="task inline strikethrough">
+                {{else}}
+                <p class="task inline">
+                {{/if}}
                   {{task.task_name}}
-                </label>
+                </p>
+
+                {{! edit and delete buttons for tasks }}
+                <button class="btn btn-sm btn-outline-secondary task-rename inline">
+                  <img src="/public/svg/pencil.svg" alt="edit task">
+                </button>
+                <form class="update-task-form hidden" action="index.html" method="patch">
+                  <input required type="text" name="task[task_name]" placeholder="new task name"/>
+                  <input type="submit" name="" value="edit" class="btn btn-sm btn-outline-secondary margin-top-5">
+                </form>
+                <button class="btn btn-sm btn-outline-secondary delete-task">
+                  <img src="/public/svg/trashcan.svg" alt="delete task">
+                </button>
+
               </div>
             {{/each}}
-          </ul>
+          </div>
         {{else}}
-          <p>No tasks yet!</p>
+
         {{/if}}
 
 
