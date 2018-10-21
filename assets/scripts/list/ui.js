@@ -22,7 +22,7 @@ const showRenameForm = function (event) {
   console.log(event.target)
   // the field that is the child of the section with data-id === listId
   // $(event.target).closest('.list-rename-input-field').removeClass('hidden')
-  $(".list-rename-input-field").removeClass('hidden')
+  $('.list-rename-input-field').removeClass('hidden')
 }
 
 module.exports = {
