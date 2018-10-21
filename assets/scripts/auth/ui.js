@@ -16,7 +16,9 @@ const signUpFailure = function () {
 
 const signInSuccess = function (response) {
   store.user = response.user
-  console.log('signed in.', response)
+  console.log('signed in.', response.user.email)
+  const userName = response.user.email
+  $('#username').html(userName)
   $('.list-nav').removeClass('hidden')
   $('.signout-button').removeClass('hidden')
   $('#signin-form').addClass('hidden')
@@ -44,6 +46,7 @@ const changePasswordFailure = function () {
 
 const signOutSuccess = function () {
   console.log('signed out.')
+  $('#username').empty()
   $('.content').empty()
   $('.list-nav').addClass('hidden')
   $('#signin-form').removeClass('hidden')
