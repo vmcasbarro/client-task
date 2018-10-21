@@ -5,15 +5,9 @@ const ui = require('./ui.js')
 const getFormFields = require('./../../../lib/get-form-fields.js')
 
 const onGetLists = (event) => {
-  event.preventDefault()
   api.getLists()
     .then(ui.getListsSuccess)
     .catch(ui.failure)
-}
-
-const onClearLists = (event) => {
-  event.preventDefault()
-  ui.clearLists()
 }
 
 const onCreateList = (event) => {
@@ -57,8 +51,6 @@ const onCreateTask = (event) => {
 }
 
 const addHandlers = () => {
-  $('#getListsButton').on('click', onGetLists)
-  $('#clearListsButton').on('click', onClearLists)
   $('#createListForm').on('submit', onCreateList)
   $('.content').on('click', '.delete-list', onDeleteList)
   $('.content').on('submit', '.update-list-form', onUpdateList)
@@ -67,5 +59,6 @@ const addHandlers = () => {
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onGetLists
 }

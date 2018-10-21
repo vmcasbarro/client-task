@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./../store.js')
+const listEvents = require('./../list/events.js')
 
 const signUpSuccess = function () {
   showSignIn()
@@ -21,6 +22,7 @@ const signInSuccess = function (response) {
   $('#signin-form').addClass('hidden')
   $('#change-password-form').removeClass('hidden')
   $('.signup-button').addClass('hidden')
+  listEvents.onGetLists()
 
   clearForms()
 }

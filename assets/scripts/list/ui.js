@@ -8,10 +8,6 @@ const getListsSuccess = (data) => {
   $('.content').html(showListsHtml)
 }
 
-const clearLists = () => {
-  $('.content').empty()
-}
-
 const failure = (error) => {
   console.error(error)
 }
@@ -31,7 +27,6 @@ const showRenameForm = function (event) {
 
 module.exports = {
   getListsSuccess,
-  clearLists,
   failure,
   showRenameForm
 }
