@@ -7,13 +7,13 @@
 
       <section data-id="{{list.id}}">
 
-        <h2 class="list-name inline" data-id="{{list.id}}">{{list.list_name}}</h2>
+        <h3 class="list-name inline" data-id="{{list.id}}">{{list.list_name}}</h3>
 
         <form class="update-list-form inline" action="index.html" method="patch">
           <input class="list-rename-input-field hidden" required type="text" name="list[list_name]" placeholder="new list name"/>
-          <input type="submit" name="" value="change this list!" class="list-rename btn btn-outline-secondary margin-top-5">
+          <input type="submit" name="" value="edit" class="list-rename btn btn-sm btn-outline-secondary margin-top-5">
         </form>
-        <button class="btn btn-outline-secondary delete-list">
+        <button class="btn btn-sm btn-outline-secondary delete-list">
           <img src="/public/svg/trashcan.svg" alt="delete">
         </button>
 
@@ -33,10 +33,14 @@
           <p>No tasks yet!</p>
         {{/if}}
 
+
         <form class="create-task-form" action="index.html" method="post">
           <input required type="text" name="task[task_name]" placeholder="new task"/>
           <input type="submit" name="" value="add a task!" class="btn btn-outline-secondary margin-top-5">
         </form>
+
+        <br>
+        <br>
 
       </section>
   </div>
