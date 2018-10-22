@@ -91,8 +91,11 @@ const onToggleTaskComplete = (event) => {
 const addHandlers = () => {
   $('#createListForm').on('submit', onCreateList)
   $('.content').on('click', '.delete-list', onDeleteList)
+
+  // need this event to only show the form intended
   $('.content').on('click', '.list-rename', ui.showRenameList)
   $('.content').on('submit', '.update-list-form', onUpdateList)
+
   $('.content').on('submit', '.create-task-form', onCreateTask)
   $('.content').on('click', '.task-rename', ui.showRenameTask)
   $('.content').on('submit', '.update-task-form', onRenameTask)
