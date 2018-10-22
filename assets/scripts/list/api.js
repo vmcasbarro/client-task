@@ -59,10 +59,63 @@ const createTask = function (dataArray) {
   })
 }
 
+const updateTask = function (listId, taskId, data) {
+  console.log(data)
+  return $.ajax({
+    url: config.apiUrl + `/lists/${listId}/tasks/${taskId}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const taskComplete = function (event, listId, taskId) {
+  return $.ajax({
+    url: config.apiUrl + `/lists/${listId}/tasks/${taskId}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      task: {completed: 'true'}
+    }
+  })
+}
+
+const taskNotComplete = function (event, listId, taskId) {
+  return $.ajax({
+    url: config.apiUrl + `/lists/${listId}/tasks/${taskId}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      task: {completed: 'false'}
+    }
+  })
+}
+
+const deleteTask = function (listId, taskId) {
+  return $.ajax({
+    url: config.apiUrl + `/lists/${listId}/tasks/${taskId}`,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+
 module.exports = {
   getLists,
   createList,
   updateList,
   deleteList,
-  createTask
+  createTask,
+  updateTask,
+  deleteTask,
+  taskComplete,
+  taskNotComplete
 }

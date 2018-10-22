@@ -17,7 +17,7 @@ const clearForms = function () {
   $('#createListForm').trigger('reset')
 }
 
-const showRenameForm = function (event) {
+const showRenameList = function (event) {
   // const listId = $(event.target).closest('section').data('id')
   console.log(event.target)
   // the field that is the child of the section with data-id === listId
@@ -25,8 +25,28 @@ const showRenameForm = function (event) {
   $('.list-rename-input-field').removeClass('hidden')
 }
 
+const showRenameTask = function (event) {
+  $('.task-rename').removeClass('inline')
+  $('.task-rename').addClass('hidden')
+  $('.update-task-form').removeClass('hidden')
+  $('.update-task-form').addClass('inline')
+}
+
+const taskCompleteSuccess = function (target) {
+  console.log('in ui.js', target)
+  $(target).addClass('strikethrough')
+}
+
+const taskNotCompleteSuccess = function (target) {
+  console.log('in ui.js', target)
+  $(target).removeClass('strikethrough')
+}
+
 module.exports = {
   getListsSuccess,
   failure,
-  showRenameForm
+  showRenameList,
+  showRenameTask,
+  taskCompleteSuccess,
+  taskNotCompleteSuccess
 }
