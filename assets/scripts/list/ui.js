@@ -18,11 +18,10 @@ const clearForms = function () {
 }
 
 const showRenameList = function (event) {
-  // const listId = $(event.target).closest('section').data('id')
-  console.log(event.target)
-  // the field that is the child of the section with data-id === listId
-  // $(event.target).closest('.list-rename-input-field').removeClass('hidden')
-  $('.list-rename-input-field').removeClass('hidden')
+  $('.list-rename').removeClass('inline')
+  $('.list-rename').addClass('hidden')
+  $('.update-list-form').removeClass('hidden')
+  $('.update-list-form').addClass('inline')
 }
 
 const showRenameTask = function (event) {

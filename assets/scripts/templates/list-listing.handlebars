@@ -8,14 +8,15 @@
 
         {{! edit and delete buttons for lists }}
         {{! update this form to amtch the tasks form }}
-        <form class="update-list-form inline" action="index.html" method="patch">
-          <input class="list-rename-input-field hidden" required type="text" name="list[list_name]" placeholder="new list name"/>
-          <input type="submit" name="" value="edit" class="list-rename btn btn-sm btn-outline-secondary margin-top-5 bare-button">
-          <button type="submit" class="btn btn-sm btn-outline-secondary bare-button">
-            <img src="/public/svg/pencil.svg" alt="edit">
-          </button>
+        <button class="btn btn-sm btn-outline-secondary list-rename inline bare-button">
+          <img src="/public/svg/pencil.svg" alt="edit">
+        </button>
 
+        <form class="update-list-form hidden" action="index.html" method="patch">
+          <input class="list-rename-input-field" required type="text" name="list[list_name]" placeholder="new list name"/>
+          <input type="submit" name="" value="edit" class="btn btn-sm btn-outline-secondary margin-top-5 bare-button">
         </form>
+
         <button class="btn btn-sm btn-outline-secondary delete-list bare-button">
           <img src="/public/svg/trashcan.svg" alt="delete list">
         </button>
@@ -34,7 +35,7 @@
 
                 {{! edit and delete buttons for tasks }}
                 <button class="btn btn-sm btn-outline-secondary task-rename inline bare-button">
-                  <img src="/public/svg/pencil.svg" alt="edit task">
+                  <img src="/public/svg/pencil.svg" alt="edit">
                 </button>
                 <form class="update-task-form hidden" action="index.html" method="patch">
                   <input required type="text" name="task[task_name]" placeholder="new task name"/>
