@@ -3,60 +3,83 @@
 
 
       <section data-id="{{list.id}}">
+        <div class="container">
+          <div class="row">
+            <div class="col-6">
+              <div class="row">
+                <h3 class="list-name inline" data-id="{{list.id}}">{{list.list_name}}</h3>
+              </div>
+            </div>
+            <div class="col-6">
 
-        <h3 class="list-name inline" data-id="{{list.id}}">{{list.list_name}}</h3>
+              {{! edit and delete buttons for lists }}
+              {{! update this form to amtch the tasks form }}
+              <button class="btn btn-sm btn-outline-secondary list-rename inline bare-button">
+                <img src="/public/svg/pencil.svg" alt="edit">
+              </button>
 
-        {{! edit and delete buttons for lists }}
-        {{! update this form to amtch the tasks form }}
-        <button class="btn btn-sm btn-outline-secondary list-rename inline bare-button">
-          <img src="/public/svg/pencil.svg" alt="edit">
-        </button>
+              <form class="update-list-form hidden" action="index.html" method="patch">
+                <input class="list-rename-input-field" required type="text" name="list[list_name]" placeholder="new list name"/>
+                <input type="submit" name="" value="edit" class="btn btn-sm btn-outline-secondary margin-top-5 bare-button">
+              </form>
 
-        <form class="update-list-form hidden" action="index.html" method="patch">
-          <input class="list-rename-input-field" required type="text" name="list[list_name]" placeholder="new list name"/>
-          <input type="submit" name="" value="edit" class="btn btn-sm btn-outline-secondary margin-top-5 bare-button">
-        </form>
+              <button class="btn btn-sm btn-outline-secondary delete-list bare-button">
+                <img src="/public/svg/trashcan.svg" alt="delete list">
+              </button>
 
-        <button class="btn btn-sm btn-outline-secondary delete-list bare-button">
-          <img src="/public/svg/trashcan.svg" alt="delete list">
-        </button>
+            </div>
+          </div>
+        </div>
+
+
 
         {{#if list.tasks}}
-          <div>
-            {{#each tasks as |task|}}
-              <div data-id="{{task.id}}" class="individual-task">
-                {{#if task.completed}}
-                <p class="task inline strikethrough">
-                {{else}}
-                <p class="task inline">
-                {{/if}}
-                  {{task.task_name}}
-                </p>
+          <div class="container">
+            <div class="row">
 
-                {{! edit and delete buttons for tasks }}
-                <button class="btn btn-sm btn-outline-secondary task-rename inline bare-button">
-                  <img src="/public/svg/pencil.svg" alt="edit">
-                </button>
-                <form class="update-task-form hidden" action="index.html" method="patch">
-                  <input required type="text" name="task[task_name]" placeholder="new task name"/>
-                  <input type="submit" name="" value="edit" class="btn btn-sm btn-outline-secondary margin-top-5 bare-button">
-                </form>
-                <button class="btn btn-sm btn-outline-secondary delete-task bare-button">
-                  <img src="/public/svg/trashcan.svg" alt="delete task">
-                </button>
+              {{#each tasks as |task|}}
+                <div class="col-6">
+                  <div data-id="{{task.id}}" class="individual-task">
 
-              </div>
-            {{/each}}
+                    {{#if task.completed}}
+                    <p class="task inline strikethrough">
+                    {{else}}
+                    <p class="task inline">
+                    {{/if}}
+                      {{task.task_name}}
+                    </p>
+
+                  </div>
+                </div>
+                <div class="col-6">
+
+                    {{! edit and delete buttons for tasks }}
+                    <button class="btn btn-sm btn-outline-secondary task-rename inline bare-button">
+                      <img src="/public/svg/pencil.svg" alt="edit">
+                    </button>
+                    <form class="update-task-form hidden" action="index.html" method="patch">
+                      <input required type="text" name="task[task_name]" placeholder="new task name"/>
+                      <input type="submit" name="" value="edit" class="btn btn-sm btn-outline-secondary margin-top-5 bare-button">
+                    </form>
+                    <button class="btn btn-sm btn-outline-secondary delete-task bare-button">
+                      <img src="/public/svg/trashcan.svg" alt="delete task">
+                    </button>
+
+                </div>
+
+
+              {{/each}}
+            </div>
           </div>
         {{else}}
 
         {{/if}}
-
-
-        <form class="create-task-form" action="index.html" method="post">
-          <input required type="text" name="task[task_name]" placeholder="new task"/>
-          <!-- <input type="submit" name="" value="add a task!" class="btn btn-outline-secondary margin-top-5"> -->
-        </form>
+        <nav>
+          <form class="create-task-form" action="index.html" method="post">
+            <input required class="new-task focus" type="text" name="task[task_name]" placeholder="new task                    &#8629;"/>
+            <!-- <input type="submit" name="" value="add a task!" class="btn btn-outline-secondary margin-top-5"> -->
+          </form>
+        </nav>
 
         <br>
         <br>

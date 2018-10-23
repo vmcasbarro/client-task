@@ -39,6 +39,15 @@ const onUpdateList = (event) => {
     .catch(console.log)
 }
 
+const moveFocus = (event, listId) => {
+  const input = $(listId).closest('input')
+  console.log(event.target)
+  console.log('input', input)
+  onGetLists(event)
+  $('.focus').focus()
+  // $(input).focus()
+}
+
 const onCreateTask = (event) => {
   event.preventDefault()
   const listId = $(event.target).closest('section').data('id')
@@ -46,7 +55,7 @@ const onCreateTask = (event) => {
   const data = [listId, formFieldData]
   console.log(data)
   api.createTask(data)
-    .then(() => { onGetLists(event) })
+    .then(() => { moveFocus(event, listId) })
     .catch(console.log)
 }
 

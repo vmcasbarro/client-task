@@ -52,64 +52,87 @@
 
       <!-- LISTS! -->
       <nav class="list-nav hidden">
-        <form id="createListForm" class="" action="index.html" method="post">
-          <input required type="text" name="list[list_name]" placeholder="new list"/>
-          <!-- <input type="submit" name="" value="Create!" class="btn btn-outline-secondary margin-top-5"> -->
-        </form>
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <form id="createListForm" class="" action="index.html" method="post">
+                <input required type="text" name="list[list_name]" placeholder="new list                      &#8629;"/>
+                <!-- <input type="submit" name="" value="Create!" class="btn btn-outline-secondary margin-top-5"> -->
+              </form>
+            </div>
+          </div>
+        </div>
       </nav>
 
       <br>
 
       <main>
-        <div id="content" class="content"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div id="content" class="content"></div>
+            </div>
+          </div>
+        </div>
       </main>
 
       <!-- AUTH! -->
       <div class="auth">
+            <!-- sign in form -->
+            <form id="signin-form" action="index.html" method="post">
+              <div class="container">
+                <div class="row justify-content-start no-gutters">
+                  <div class="col-12 col-sm-auto">
+                    <input required type="text" name="credentials[email]" placeholder="email"/>
+                  </div>
+                  <div class="col-12 col-sm-auto">
+                    <input required type="password" name="credentials[password]"  placeholder="password" />
+                  </div>
+                  <div class="col-12 col-sm-auto">
+                    <input type="submit" name="" value="sign in" class="btn btn-outline-secondary margin-top-5">
+                  </div>
+                </div>
+              </div>
+            </form>
 
+            <!-- sign up form -->
+            <form id="signup-form" class="signup-form hidden" action="index.html" method="post">
+              <div class="container">
+                <div class="row justify-content-start no-gutters">
+                  <div class="col-12 col-md-auto">
+                    <input required type="text" name="credentials[email]" placeholder="email"/>
+                  </div>
+                  <div class="col-12 col-md-auto">
+                    <input required type="password" name="credentials[password]"  placeholder="password" />
+                  </div>
+                  <div class="col-12 col-md-auto">
+                    <input required type="password" name="credentials[password_confirmation]"  placeholder="confirm password"/>
+                  </div>
+                  <div class="col-12 col-md-auto">
+                    <input type="submit" name="" value="sign up" class="btn btn-outline-secondary margin-top-5">
+                  </div>
+                </div>
+              </div>
+            </form>
 
-        <!-- sign in form -->
-        <form id="signin-form" action="index.html" method="post">
-          <input required type="text" name="credentials[email]" placeholder="email"/>
-          <input required type="password" name="credentials[password]"  placeholder="password" />
-          <input type="submit" name="" value="sign in" class="btn btn-outline-secondary margin-top-5">
-        </form>
+              <!-- only showing one of these at a time -->
+              <div class="container">
+                <div class="row">
+                  <div class="col-12">
+                    <a class="signup-button" href="#">want to sign up?</a>
+                    <a class="signin-button hidden" href="#">want to sign in?</a>
+                  </div>
+                </div>
+              </div>
 
-        <!-- sign up form -->
-        <div>
-          <form id="signup-form" class="signup-form hidden" action="index.html" method="post">
-            <input required type="text" name="credentials[email]" placeholder="email"/>
-            <input required type="password" name="credentials[password]"  placeholder="password" />
-            <input required type="password" name="credentials[password_confirmation]"  placeholder="confirm password"/>
-            <input type="submit" name="" value="sign up" class="btn btn-outline-secondary margin-top-5">
-          </form>
+            <br>
 
-          <!-- only showing one of these at a time -->
-          <a class="signup-button" href="#">want to sign up?</a>
-          <a class="signin-button hidden" href="#">want to sign in?</a>
+            <!-- sign out button -->
+            <button
+              id="signout-button" class="btn btn-outline-secondary signout-button hidden"> sign out
+            </button>
+
         </div>
-
-        <br>
-
-        <!-- change password form -->
-          <!-- <form id="change-password-form" class="hidden">
-            <legend>change password</legend>
-            <input required type="password" name="passwords[old]" placeholder="old password"/>
-            <input required type="password" name="passwords[new]"  placeholder="new password" />
-            <input type="submit" name="" value="change password" class="btn btn-outline-secondary">
-          </form>
-
-        <br> -->
-
-        <!-- sign out button -->
-        <button
-          id="signout-button" class="btn btn-outline-secondary signout-button hidden"> sign out
-        </button>
-
-
-
-
-
       </div>
 
 
