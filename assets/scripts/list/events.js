@@ -39,17 +39,6 @@ const onUpdateList = (event) => {
     .catch(console.log)
 }
 
-
-// work in progress -- need to pull out onGetLists into a helper function, run the focus script as a .then
-// const moveFocus = (event, listId) => {
-//   const input = $(listId).closest('input')
-//   console.log(event.target)
-//   console.log('input', input)
-//   onGetLists(event)
-//   $('.focus').focus()
-//   // $(input).focus()
-// }
-
 const onCreateTask = (event) => {
   event.preventDefault()
   const listId = $(event.target).closest('section').data('id')
@@ -90,8 +79,7 @@ const onToggleTaskComplete = (event) => {
     api.taskNotComplete(event, listId, taskId)
       .then(ui.taskNotCompleteSuccess(event.target))
       .catch(console.log)
-  }
-  else {
+  } else {
     api.taskComplete(event, listId, taskId)
       .then(ui.taskCompleteSuccess(event.target))
       .catch(console.log)
