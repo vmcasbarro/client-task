@@ -60,7 +60,6 @@ const createTask = function (dataArray) {
 }
 
 const updateTask = function (listId, taskId, data) {
-  console.log(data)
   return $.ajax({
     url: config.apiUrl + `/lists/${listId}/tasks/${taskId}`,
     method: 'PATCH',

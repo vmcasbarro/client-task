@@ -15,17 +15,16 @@ const onCreateList = (event) => {
   const data = getFormFields(event.target)
   api.createList(data)
     .then(() => { onGetLists(event) })
-    .catch(console.log)
+    .catch()
 }
 
 const onDeleteList = (event) => {
   event.preventDefault()
   const listId = $(event.target).closest('section').data('id')
-  console.log(listId)
   if (confirm('are you sure you want to delete this list?')) {
     api.deleteList(listId)
       .then(() => { onGetLists(event) })
-      .catch(console.log)
+      .catch()
   }
 }
 
@@ -36,7 +35,7 @@ const onUpdateList = (event) => {
   const data = [listId, formFieldData]
   api.updateList(data)
     .then(() => { onGetLists(event) })
-    .catch(console.log)
+    .catch()
 }
 
 const onCreateTask = (event) => {
@@ -44,10 +43,9 @@ const onCreateTask = (event) => {
   const listId = $(event.target).closest('section').data('id')
   const formFieldData = getFormFields(event.target)
   const data = [listId, formFieldData]
-  console.log(data)
   api.createTask(data)
     .then(() => { onGetLists(event, listId) })
-    .catch(console.log)
+    .catch()
 }
 
 const onRenameTask = (event) => {
@@ -57,7 +55,7 @@ const onRenameTask = (event) => {
   const data = getFormFields(event.target)
   api.updateTask(listId, taskId, data)
     .then(() => { onGetLists(event) })
-    .catch(console.log)
+    .catch()
 }
 
 const onDeleteTask = (event) => {
@@ -67,7 +65,7 @@ const onDeleteTask = (event) => {
   if (confirm('are you sure you want to delete this task?')) {
     api.deleteTask(listId, taskId)
       .then(() => { onGetLists(event) })
-      .catch(console.log)
+      .catch()
   }
 }
 
@@ -78,11 +76,11 @@ const onToggleTaskComplete = (event) => {
   if ($(event.target).hasClass('strikethrough')) {
     api.taskNotComplete(event, listId, taskId)
       .then(ui.taskNotCompleteSuccess(event.target))
-      .catch(console.log)
+      .catch()
   } else {
     api.taskComplete(event, listId, taskId)
       .then(ui.taskCompleteSuccess(event.target))
-      .catch(console.log)
+      .catch()
   }
 }
 

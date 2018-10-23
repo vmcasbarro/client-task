@@ -19,7 +19,6 @@ const clearForms = function () {
 
 const showRenameList = function (event) {
   const listId = $(event.target).closest('section').data('id')
-  console.log(listId)
   $(`[data-list-id=${listId}] > .list-rename`).removeClass('inline')
   $(`[data-list-id=${listId}] > .list-rename`).addClass('hidden')
   $(`[data-list-id=${listId}] > .update-list-form`).removeClass('hidden')
@@ -35,12 +34,10 @@ const showRenameTask = function (event) {
 }
 
 const taskCompleteSuccess = function (target) {
-  console.log('in ui.js', target)
   $(target).addClass('strikethrough')
 }
 
 const taskNotCompleteSuccess = function (target) {
-  console.log('in ui.js', target)
   $(target).removeClass('strikethrough')
 }
 
