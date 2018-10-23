@@ -19,18 +19,19 @@ const clearForms = function () {
 
 const showRenameList = function (event) {
   const listId = $(event.target).closest('section').data('id')
-  $(`[data-id=${listId}] > .list-rename`).removeClass('inline')
-  $(`[data-id=${listId}] > .list-rename`).addClass('hidden')
-  $(`[data-id=${listId}] > .update-list-form`).removeClass('hidden')
-  $(`[data-id=${listId}] > .update-list-form`).addClass('inline')
+  console.log(listId)
+  $(`[data-list-id=${listId}] > .list-rename`).removeClass('inline')
+  $(`[data-list-id=${listId}] > .list-rename`).addClass('hidden')
+  $(`[data-list-id=${listId}] > .update-list-form`).removeClass('hidden')
+  $(`[data-list-id=${listId}] > .update-list-form`).addClass('inline')
 }
 
 const showRenameTask = function (event) {
-  const taskId = $(event.target).closest('div').data('id')
-  $(`[data-id=${taskId}] > .task-rename`).removeClass('inline')
-  $(`[data-id=${taskId}] > .task-rename`).addClass('hidden')
-  $(`[data-id=${taskId}] > .update-task-form`).removeClass('hidden')
-  $(`[data-id=${taskId}] > .update-task-form`).addClass('inline')
+  const taskId = $(event.target).closest('div').data('task-id')
+  $(`[data-task-id=${taskId}] > .task-rename`).removeClass('inline')
+  $(`[data-task-id=${taskId}] > .task-rename`).addClass('hidden')
+  $(`[data-task-id=${taskId}] > .update-task-form`).removeClass('hidden')
+  $(`[data-task-id=${taskId}] > .update-task-form`).addClass('inline')
 }
 
 const taskCompleteSuccess = function (target) {

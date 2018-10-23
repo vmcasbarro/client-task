@@ -10,7 +10,7 @@
                 <h3 class="list-name inline" data-id="{{list.id}}">{{list.list_name}}</h3>
               </div>
             </div>
-            <div class="col-6">
+            <div data-list-id="{{list.id}}" class="col-6">
 
               {{! edit and delete buttons for lists }}
               {{! update this form to amtch the tasks form }}
@@ -51,7 +51,7 @@
 
                   </div>
                 </div>
-                <div class="col-6">
+                <div data-task-id="{{task.id}}" class="col-6">
 
                     {{! edit and delete buttons for tasks }}
                     <button class="btn btn-sm btn-outline-secondary task-rename inline bare-button">

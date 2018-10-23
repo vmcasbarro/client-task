@@ -39,14 +39,16 @@ const onUpdateList = (event) => {
     .catch(console.log)
 }
 
-const moveFocus = (event, listId) => {
-  const input = $(listId).closest('input')
-  console.log(event.target)
-  console.log('input', input)
-  onGetLists(event)
-  $('.focus').focus()
-  // $(input).focus()
-}
+
+// work in progress -- need to pull out onGetLists into a helper function, run the focus script as a .then
+// const moveFocus = (event, listId) => {
+//   const input = $(listId).closest('input')
+//   console.log(event.target)
+//   console.log('input', input)
+//   onGetLists(event)
+//   $('.focus').focus()
+//   // $(input).focus()
+// }
 
 const onCreateTask = (event) => {
   event.preventDefault()
@@ -55,14 +57,14 @@ const onCreateTask = (event) => {
   const data = [listId, formFieldData]
   console.log(data)
   api.createTask(data)
-    .then(() => { moveFocus(event, listId) })
+    .then(() => { onGetLists(event, listId) })
     .catch(console.log)
 }
 
 const onRenameTask = (event) => {
   event.preventDefault()
   const listId = $(event.target).closest('section').data('id')
-  const taskId = $(event.target).closest('div').data('id')
+  const taskId = $(event.target).closest('div').data('task-id')
   const data = getFormFields(event.target)
   api.updateTask(listId, taskId, data)
     .then(() => { onGetLists(event) })
@@ -72,7 +74,7 @@ const onRenameTask = (event) => {
 const onDeleteTask = (event) => {
   event.preventDefault()
   const listId = $(event.target).closest('section').data('id')
-  const taskId = $(event.target).closest('div').data('id')
+  const taskId = $(event.target).closest('div').data('task-id')
   if (confirm('are you sure you want to delete this task?')) {
     api.deleteTask(listId, taskId)
       .then(() => { onGetLists(event) })
@@ -88,9 +90,8 @@ const onToggleTaskComplete = (event) => {
     api.taskNotComplete(event, listId, taskId)
       .then(ui.taskNotCompleteSuccess(event.target))
       .catch(console.log)
-	}
+  }
   else {
-    // $(event.target).addClass('strikethrough')
     api.taskComplete(event, listId, taskId)
       .then(ui.taskCompleteSuccess(event.target))
       .catch(console.log)
@@ -100,11 +101,8 @@ const onToggleTaskComplete = (event) => {
 const addHandlers = () => {
   $('#createListForm').on('submit', onCreateList)
   $('.content').on('click', '.delete-list', onDeleteList)
-
-  // need this event to only show the form intended
   $('.content').on('click', '.list-rename', ui.showRenameList)
   $('.content').on('submit', '.update-list-form', onUpdateList)
-
   $('.content').on('submit', '.create-task-form', onCreateTask)
   $('.content').on('click', '.task-rename', ui.showRenameTask)
   $('.content').on('submit', '.update-task-form', onRenameTask)
