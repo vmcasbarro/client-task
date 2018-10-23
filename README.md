@@ -12,7 +12,19 @@ deployment site: https://vmcasbarro.github.io/client-task/
 deployed api: https://rails-api-task.herokuapp.com/
 
 <h2>What This App Does:</h2>
-TASK is a to-do list manager! The app allows a user to organize tasks in lists, and mark them as completed. Lists and tasks can be modified, renamed, or deleted. All progress is saved instantly on the server-side of the application. 
+TASK is a to-do list manager! The app allows a user to organize tasks in lists, and mark them as completed. Lists and tasks can be modified, renamed, or deleted. All progress is saved instantly on the server-side of the application.
+
+<h2>Technologies Used:</h2>
+<li>JavaScript</li>
+<li>Ruby on Rails</li>
+<li>PostgresSQL</li>
+<li>Bootstrap</li>
+<li>Handlebars</li>
+<li>Grunt</li>
+<li>Rubocop</li>
+<li>Open Iconic</li>
+<li>HTML</li>
+<li>CSS</li>
 
 <h2>Wireframes</h2>
 ![Wireframe](https://i.imgur.com/CaLNMlL.jpg "Wireframe")
