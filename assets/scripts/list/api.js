@@ -46,9 +46,7 @@ const deleteList = function (listId) {
   })
 }
 
-const createTask = function (dataArray) {
-  const listId = dataArray[0]
-  const data = dataArray[1]
+const createTask = function (data, listId) {
   return $.ajax({
     url: config.apiUrl + `/lists/${listId}/tasks`,
     method: 'POST',

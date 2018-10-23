@@ -12,4 +12,7 @@ $(() => {
   // your JS code goes here
   authEvents.addHandlers()
   listEvents.addHandlers()
+  $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active')
+    })
 })
