@@ -5,18 +5,17 @@ const listEvents = require('./../list/events.js')
 
 const signUpSuccess = function () {
   showSignIn()
-  console.log('signed up.')
   clearForms()
+  $('#signup-success-alert').removeClass('hidden')
 }
 
 const signUpFailure = function () {
-  console.log('didn\'t sign up. something went wrong.')
   clearForms()
+  $('#signup-failure-alert').removeClass('hidden')
 }
 
 const signInSuccess = function (response) {
   store.user = response.user
-  console.log('signed in.', response.user.email)
   const userName = response.user.email
   $('.username').removeClass('hidden')
   $('#username').html(userName)
@@ -31,22 +30,21 @@ const signInSuccess = function (response) {
 }
 
 const signInFailure = function () {
-  console.log('error signing in. please try again')
   clearForms()
+  $('#incorrect-credentials').removeClass('hidden')
 }
 
 const changePasswordSuccess = function () {
-  console.log('password changed. don\'t forget it.')
   clearForms()
+  $('#password-changed-alert').removeClass('hidden')
 }
 
 const changePasswordFailure = function () {
-  console.log('password wasn\'t changed. try again.')
   clearForms()
+  $('#password-unchanged-alert').removeClass('hidden')
 }
 
 const signOutSuccess = function () {
-  console.log('signed out.')
   $('.username').addClass('hidden')
   $('#username').empty()
   $('.content').empty()
@@ -59,7 +57,6 @@ const signOutSuccess = function () {
 }
 
 const signOutFailure = function () {
-  console.log('sign out error. try again.')
   clearForms()
 }
 
@@ -68,6 +65,11 @@ const clearForms = function () {
   $('#signup-form').trigger('reset')
   $('#change-password-form').trigger('reset')
   $('#createListForm').trigger('reset')
+  $('#incorrect-credentials').addClass('hidden')
+  $('#signup-success-alert').addClass('hidden')
+  $('#signup-failure-alert').addClass('hidden')
+  $('#password-changed-alert').addClass('hidden')
+  $('#password-unchanged-alert').addClass('hidden')
 }
 
 const showSignUp = function () {

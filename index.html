@@ -53,6 +53,19 @@
         </nav>
       </div>
 
+      <div id="password-changed-alert" class="alert alert-success alert-dismissible fade show hidden" role="alert">
+        <strong>Password changed!</strong> Now don't forget it.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="password-unchanged-alert" class="alert alert-warning alert-dismissible fade show hidden" role="alert">
+        <strong>Password unchanged!</strong> Try again?
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
       <h1>TASK</h1>
       <h2>a minimalist take on the to-do list.</h2>
 
@@ -98,9 +111,22 @@
                   <div class="col-12 col-sm-auto">
                     <input type="submit" name="" value="sign in" class="btn btn-outline-secondary margin-top-5">
                   </div>
+                  <div id="signup-success-alert" class="alert alert-success alert-dismissible fade show hidden" role="alert">
+                    <strong>Signup success!</strong> You should log in now.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div id="incorrect-credentials" class="alert alert-warning alert-dismissible fade show hidden" role="alert">
+                    <strong>Holy guacamole!</strong> You should make sure your credentials are correct.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </form>
+
 
             <!-- sign up form -->
             <form id="signup-form" class="signup-form hidden" action="index.html" method="post">
@@ -117,6 +143,12 @@
                   </div>
                   <div class="col-12 col-md-auto">
                     <input type="submit" name="" value="sign up" class="btn btn-outline-secondary margin-top-5">
+                  </div>
+                  <div id="signup-failure-alert" class="alert alert-warning alert-dismissible fade show hidden" role="alert">
+                    <strong>Holy guacamole!</strong> Either that user name has already been created, or your password and password confirmation don't match.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
                   </div>
                 </div>
               </div>
