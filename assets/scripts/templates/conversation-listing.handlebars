@@ -1,0 +1,23 @@
+{{#each conversations as |conversation|}}
+  {{log conversation}}
+
+  <div>
+
+      <h4 data-id="{{conversation.id}}">
+        <small>{{conversation.conversation_name}}</small>
+        <small>{{conversation.id}}</small>
+      </h4>
+
+      <section data-id="{{conversation.id}}">
+        {{#if conversation.messages}}
+          {{#each messages as |message|}}
+          {{message.body}} from {{message.user_id}}
+          <br>
+          {{/each}}
+        {{else}}
+          No messages yet
+        {{/if}}
+      </section>
+  </div>
+
+{{/each}}

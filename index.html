@@ -101,18 +101,42 @@
 
         <br> -->
 
+        <!-- Conversations! -->
+        <div class="container-fluid">
+
+          <nav class="conversation-nav">
+            <!-- create a conversation -->
+            <form id="createConversationForm" class="" action="index.html" method="post">
+              <input required type="text" name="conversation[conversation_name]" placeholder="new conversation"/>
+              <input type="submit" name="" value="Create!" class="btn btn-outline-secondary margin-top-5">
+            </form>
+
+            <!-- create a message -->
+            <form id="createMessageForm" class="" action="index.html" method="post">
+              <input required type="text" name="message[body]" placeholder="message"/>
+              <input required type="text" name="message[conversation_id]" placeholder="conversation id"/>
+              <input type="submit" name="" value="send message!" class="btn btn-outline-secondary margin-top-5">
+            </form>
+          </nav>
+
+          <nav>
+            <button id="getConversationsButton" class="btn btn-default">Get Convos!</button>
+            <button id="clearConversationsButton" class="btn btn-default">Clear Convos!</button>
+          </nav>
+          <main>
+            <div id="conversation-content" class=""></div>
+          </main>
+        </div>
+
+
+
+
+
+
         <!-- sign out button -->
         <button
           id="signout-button" class="btn btn-outline-secondary signout-button hidden"> sign out
         </button>
-
-
-
-
-
       </div>
-
-
-
     </body>
 </html>
