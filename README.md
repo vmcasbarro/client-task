@@ -27,9 +27,7 @@ TASK is a to-do list manager! The app allows a user to organize tasks in lists, 
 <li>CSS</li>
 
 <h2>Wireframes</h2>
-![Wireframe](https://i.imgur.com/vP1Th1Y.jpg "Wireframe")
-
-![alt text](https://i.imgur.com/vP1Th1Y.jpg "Logo Title Text 1")
+![wire frame](https://i.imgur.com/vP1Th1Y.jpg "wire frame")
 
 
 <h2>User Stories</h2>
@@ -41,7 +39,7 @@ TASK is a to-do list manager! The app allows a user to organize tasks in lists, 
 <li>User will be able to see all lists and tasks</li>
 
 <h2>Entity Relationship Diagrams</h2>
-![ERD](https://i.imgur.com/nUDht2P.jpg "ERD")
+![e.r.d.](https://i.imgur.com/nUDht2P.jpg "e.r.d.")
 
 <h2>Planning</h2>
 This project was a great learning experience for me! It was essential for me to have several iterations of my project in mind to manage features I wanted to add. I kept myself on task by keeping a running list of features I wanted to change, modify, or create. This way, when I thought of a new feature (usually while working on a different one), I could write it down and keep it for later instead of getting side tracked.
