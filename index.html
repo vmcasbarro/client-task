@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>TASK</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+
+      <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+          <div class="bg-dark p-4 d-flex flex-row-reverse">
+            <!-- change password form -->
+              <form id="change-password-form" class="hidden">
+                <input required type="password" name="passwords[old]" placeholder="old password"/>
+                <input required type="password" name="passwords[new]"  placeholder="new password" />
+                <input type="submit" name="" value="change password" class="btn btn-outline-secondary">
+              </form>
+          </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- <div id="username" class="username">
+
+          </div> -->
+
+          <div class="username navbar-text hidden">
+            Signed in as:
+            <span id="username" class="username">
+              <!-- will contain username upon successful login -->
+            </span>
+          </div>
+
+          <!-- three buttons, only ever showing one at a time -->
+          <button
+            id="signup-button-top" class="btn btn-outline-secondary signup-button"> sign up
+          </button>
+          <button
+            id="signin-button-top" class="btn btn-outline-secondary signin-button hidden"> sign in
+          </button>
+          <button
+            id="signout-button-top" class="btn btn-outline-secondary signout-button hidden"> sign out
+          </button>
+        </nav>
+      </div>
+
+      <div id="password-changed-alert" class="alert alert-success alert-dismissible fade show hidden" role="alert">
+        <strong>Password changed!</strong> Now don't forget it.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="password-unchanged-alert" class="alert alert-warning alert-dismissible fade show hidden" role="alert">
+        <strong>Password unchanged!</strong> Try again?
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <h1>TASK</h1>
+      <h2>a minimalist take on the to-do list.</h2>
+
+
+      <!-- LISTS! -->
+      <nav class="list-nav hidden">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <form id="createListForm" class="" action="index.html" method="post">
+                <input required type="text" name="list[list_name]" placeholder="new list                      &#8629;"/>
+                <!-- <input type="submit" name="" value="Create!" class="btn btn-outline-secondary margin-top-5"> -->
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <br>
+
+      <main>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div id="content" class="content"></div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- AUTH! -->
+      <div class="auth">
+            <!-- sign in form -->
+            <form id="signin-form" action="index.html" method="post">
+              <div class="container">
+                <div class="row justify-content-start no-gutters">
+                  <div class="col-12 col-sm-auto">
+                    <input required type="text" name="credentials[email]" placeholder="email"/>
+                  </div>
+                  <div class="col-12 col-sm-auto">
+                    <input required type="password" name="credentials[password]"  placeholder="password" />
+                  </div>
+                  <div class="col-12 col-sm-auto">
+                    <input type="submit" name="" value="sign in" class="btn btn-outline-secondary margin-top-5">
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="signup-success-alert" class="alert alert-success alert-dismissible fade show hidden" role="alert">
+                    <strong>Signup success!</strong> You should log in now.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div id="incorrect-credentials" class="alert alert-warning alert-dismissible fade show hidden" role="alert">
+                    <strong>Holy guacamole!</strong> You should make sure your credentials are correct.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </form>
+
+
+            <!-- sign up form -->
+            <form id="signup-form" class="signup-form hidden" action="index.html" method="post">
+              <div class="container">
+                <div class="row justify-content-start no-gutters">
+                  <div class="col-12 col-md-auto">
+                    <input required type="text" name="credentials[email]" placeholder="email"/>
+                  </div>
+                  <div class="col-12 col-md-auto">
+                    <input required type="password" name="credentials[password]"  placeholder="password" />
+                  </div>
+                  <div class="col-12 col-md-auto">
+                    <input required type="password" name="credentials[password_confirmation]"  placeholder="confirm password"/>
+                  </div>
+                  <div class="col-12 col-md-auto">
+                    <input type="submit" name="" value="sign up" class="btn btn-outline-secondary margin-top-5">
+                  </div>
+                  <div id="signup-failure-alert" class="alert alert-warning alert-dismissible fade show hidden" role="alert">
+                    <strong>Holy guacamole!</strong> Either that user name has already been created, or your password and password confirmation don't match.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+              <!-- only showing one of these at a time -->
+              <div class="container">
+                <div class="row">
+                  <div class="col-12">
+                    <a class="signup-button" href="#">want to sign up?</a>
+                    <a class="signin-button hidden" href="#">want to sign in?</a>
+                  </div>
+                </div>
+              </div>
+
+            <br>
+
+            <!-- sign out button -->
+            <!-- <button
+              id="signout-button" class="btn btn-outline-secondary signout-button hidden"> sign out
+            </button> -->
+
+        </div>
+      </div>
+
+
+      <footer>
+        <div class="align-left">
+        🌑🌒🌓🌔
+        <a id="sunshine" href="#" rel="/assets/styles/index.scss">🌕</a>
+        🌖🌗🌘
+        <a id="night" href="#" rel="/assets/styles/index-night.scss">🌑</a>
+      </div>
+        code and design by <a class="footer-link" href="https://www.linkedin.com/in/vmcasbarro/">Vince Casbarro</a>
+      </footer>
+    </body>
+</html>
