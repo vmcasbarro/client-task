@@ -12,4 +12,15 @@ $(() => {
   // your JS code goes here
   authEvents.addHandlers()
   listEvents.addHandlers()
+
+  $("#night").click(function() {
+		$('body').css('background-color', '#001021')
+    $('input[type="text"]').css('background-color', '#001021')
+    $('input[type="text"]').css('color', '#C93200')
+    $('body').css('color', '#C93200')
+	})
+  $("#sunshine").click(function() {
+		$('body').css('background-color', '#F9F9F9')
+    $('body').css('color', '#001021')
+	})
 })

@@ -28,6 +28,7 @@ body {
   color: #9a9da0;
 }
 
+
 footer {
     position: fixed;
     height: 32px;
@@ -37,4 +38,9 @@ footer {
     background: #343a40;
     color: #9a9da0;
     text-align: right;
+}
+
+.align-left {
+  float: left;
+  text-align: left;
 }
