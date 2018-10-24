@@ -29,6 +29,9 @@ TASK is a to-do list manager! The app allows a user to organize tasks in lists, 
 <h2>Wireframes</h2>
 ![Wireframe](https://i.imgur.com/vP1Th1Y.jpg "Wireframe")
 
+![alt text](https://i.imgur.com/vP1Th1Y.jpg "Logo Title Text 1")
+
+
 <h2>User Stories</h2>
 <li>User will be able to create a new list.</li>
 <li>User will be able to create new tasks within a list.</li>
