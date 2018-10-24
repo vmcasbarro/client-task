@@ -22,5 +22,7 @@ $(() => {
   $("#sunshine").click(function() {
 		$('body').css('background-color', '#F9F9F9')
     $('body').css('color', '#001021')
+    $('input[type="text"]').css('background-color', '#F9F9F9')
+    $('input[type="text"]').css('color', '#001021')
 	})
 })
